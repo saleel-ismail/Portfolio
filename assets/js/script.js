@@ -4,7 +4,6 @@
    ELEMENT TOGGLE
 ================================ */
 const elementToggleFunc = (elem) => elem.classList.toggle("active");
-
 /* ================================
    SIDEBAR
 ================================ */
