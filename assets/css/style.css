@@ -1968,4 +1968,279 @@ button,
   box-shadow: 0 0 0 2px rgba(255, 180, 0, 0.2);
 }
 
+/* ================================
+   SERVICE CARD GLOW HOVER EFFECT
+================================ */
+
+.service-item {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Soft glow layer */
+.service-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 16px;
+  background: radial-gradient(
+    120px at top left,
+    rgba(255, 193, 7, 0.25),
+    transparent 60%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+/* Hover effect */
+.service-item:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.7),
+    0 0 20px rgba(255, 193, 7, 0.25);
+}
+
+/* Glow on hover */
+.service-item:hover::before {
+  opacity: 1;
+}
+
+/* Icon glow */
+.service-item:hover .service-icon-box img {
+  filter: drop-shadow(0 0 8px rgba(255, 193, 7, 0.8));
+}
+
+/* Text highlight */
+.service-item:hover .service-item-title {
+  color: #ffc107;
+}
+
+/* ================================
+   PROJECT CARD HOVER EFFECT
+================================ */
+
+.project-item a {
+  display: block;
+  border-radius: 16px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-item:hover a {
+  transform: translateY(-8px);
+  box-shadow:
+    0 15px 40px rgba(0, 0, 0, 0.75),
+    0 0 25px rgba(255, 193, 7, 0.25);
+}
+
+/* Image zoom on hover */
+.project-item:hover .project-img img {
+  transform: scale(1.05);
+}
+
+.project-img img {
+  transition: transform 0.4s ease;
+}
+
+/* GitHub / Eye icon glow */
+.project-item:hover .project-item-icon-box {
+  background: rgba(255, 193, 7, 0.15);
+  box-shadow: 0 0 12px rgba(255, 193, 7, 0.6);
+}
+
+/* Title highlight */
+.project-item:hover .project-title {
+  color: #ffc107;
+}
+
+/* ================================
+   SIDEBAR AVATAR GLOW
+================================ */
+
+.avatar-box {
+  border-radius: 20px;
+  transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.avatar-box img {
+  border-radius: 20px;
+}
+
+/* Glow on hover */
+.avatar-box:hover {
+  transform: scale(1.05);
+  box-shadow:
+    0 0 25px rgba(255, 193, 7, 0.35),
+    0 0 60px rgba(255, 193, 7, 0.15);
+}
+
+/* ================================
+   MOBILE TAP ANIMATION
+================================ */
+
+@media (hover: none) {
+
+  .service-item:active,
+  .project-item a:active {
+    transform: scale(0.97);
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.3);
+  }
+
+}
+/* ================================
+   CONTACT FORM STATUS MESSAGE
+================================ */
+
+.form-status {
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  transition: opacity 0.3s ease;
+}
+
+/* ================================
+   SMOOTH PAGE TRANSITION
+================================ */
+
+/* Base state for all pages */
+[data-page] {
+  display: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+}
+
+/* Active page */
+[data-page].active {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Prevent layout jump */
+.main-content {
+  min-height: 100vh;
+}
+
+/* ================================
+   Contact Info Glow Effect
+================================ */
+
+.contact-item {
+  position: relative;
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.contact-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 255, 156, 0.35),
+    rgba(0, 180, 255, 0.35)
+  );
+  opacity: 0;
+  filter: blur(14px);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.contact-item:hover::before {
+  opacity: 1;
+}
+
+.contact-item:hover {
+  transform: translateY(-2px);
+}
+
+/* Icon glow */
+.contact-item .icon-box ion-icon {
+  transition: color 0.3s ease, filter 0.3s ease;
+}
+
+.contact-item:hover .icon-box ion-icon {
+  color: #00ff9c;
+  filter: drop-shadow(0 0 6px #00ff9c);
+}
+
+/* Text glow */
+.contact-item:hover .contact-link,
+.contact-item:hover address,
+.contact-item:hover time {
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(0, 255, 156, 0.6);
+}
+
+
+/* ================================
+   Project Card Gradient Border
+================================ */
+
+.project-item {
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+/* Gradient border layer */
+.project-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(
+    135deg,
+    #00ff9c,
+    #00b4ff,
+    #8a2be2
+  );
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  z-index: 0;
+}
+
+/* Inner card mask */
+.project-item > a {
+  position: relative;
+  display: block;
+  background: #111;
+  border-radius: 16px;
+  z-index: 1;
+  transition: transform 0.35s ease;
+}
+
+/* Hover effects */
+.project-item:hover::before {
+  opacity: 1;
+}
+
+.project-item:hover > a {
+  transform: translateY(-6px);
+}
+
+/* Glow shadow */
+.project-item:hover {
+  box-shadow: 0 20px 45px rgba(0, 255, 156, 0.25);
+}
+
+/* Image zoom */
+.project-item:hover img {
+  transform: scale(1.06);
+  transition: transform 0.4s ease;
+}
+
+
+
+
+
 
